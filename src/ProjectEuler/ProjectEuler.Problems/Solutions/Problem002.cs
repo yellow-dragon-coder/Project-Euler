@@ -17,11 +17,11 @@
             var a = 1;
             var b = 2;
             var result = 0;
-            do
+            while (b < 4000000)
             {
                 if (b % 2 == 0) result += b;
                 (a, b) = (b, a + b);
-            } while (b < 4000000);
+            }
             return result.ToString();
         }
     }
