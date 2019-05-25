@@ -1,7 +1,6 @@
 ﻿using System;
 using ProjectEuler.Problems;
 using static System.Console;
-using static System.Environment;
 
 #pragma warning disable RCS1018 // Add default access modifier.
 
@@ -30,9 +29,11 @@ namespace ProjectEuler.CLI
             {
                 var problem = ProblemList.FindById(id);
                 if (problem == null) throw new Exception($"Problem #{id} not fount!");
-                var start = TickCount;
-                WriteLine(problem.Title);
-                WriteLine($"= {problem.GetSolution()}    ({TickCount - start} ms) \r\n");
+                var title = $"{problem.Title.ToUpperInvariant()}:";
+                WriteLine(title);
+                WriteLine(new string('-', title.Length));
+                WriteLine($"{problem.Description} \r\n");
+                WriteLine($"= {problem.GetSolution()} \r\n");
             }
             catch (Exception e)
             {
