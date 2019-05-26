@@ -1,5 +1,9 @@
 ﻿namespace ProjectEuler.Problems.Solutions
 {
+    /// <summary>
+    /// Even Fibonacci numbers
+    /// <see cref="https://projecteuler.net/problem=2"/>
+    /// </summary>
     public class Problem002 : IProblem
     {
         public int Id => 2;

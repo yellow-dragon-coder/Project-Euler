@@ -2,6 +2,10 @@
 
 namespace ProjectEuler.Problems.Solutions
 {
+    /// <summary>
+    /// Largest prime factor
+    /// <see cref="https://projecteuler.net/problem=3"/>
+    /// </summary>
     public class Problem003 : IProblem
     {
         public const long Number = 600_851_475_143;
@@ -15,8 +19,7 @@ namespace ProjectEuler.Problems.Solutions
 
         public string GetSolution()
         {
-            var max = (long)Math.Sqrt(Number);
-            for (var i = max; i > 1; i--)
+            for (var i = (long)Math.Sqrt(Number); i > 1; i--)
             {
                 if (Number % i == 0 && IsPrime(i))
                     return i.ToString();

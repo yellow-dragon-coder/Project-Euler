@@ -2,6 +2,10 @@
 
 namespace ProjectEuler.Problems.Solutions
 {
+    /// <summary>
+    /// Multiples of 3 and 5
+    /// <see cref="https://projecteuler.net/problem=1"/>
+    /// </summary>
     public class Problem001 : IProblem
     {
         public int Id => 1;
