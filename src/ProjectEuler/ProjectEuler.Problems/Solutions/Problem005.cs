@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static ProjectEuler.Problems.Helpers.Funcs;
 
 namespace ProjectEuler.Problems.Solutions
 {
@@ -19,7 +19,10 @@ namespace ProjectEuler.Problems.Solutions
 
         public string GetSolution()
         {
-            throw new NotImplementedException();
+            long result = 1;
+            for (int i = 1; i <= 20; i++)
+                result = Lcd(i, result);
+            return result.ToString();
         }
     }
 }
