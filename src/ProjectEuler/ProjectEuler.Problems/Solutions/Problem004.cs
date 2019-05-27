@@ -1,4 +1,6 @@
-﻿namespace ProjectEuler.Problems.Solutions
+﻿using ProjectEuler.Problems.Helpers;
+
+namespace ProjectEuler.Problems.Solutions
 {
     /// <summary>
     /// Largest palindrome product
@@ -24,7 +26,7 @@
                 for (var j = 1000; j > 100; j--)
                 {
                     var p = i * j;
-                    if (IsPalindrome(p.ToString()))
+                    if (p.IsPalindrome())
                     {
                         if (p > maxP)
                         {
@@ -36,16 +38,6 @@
                 }
             }
             return result;
-        }
-
-        private bool IsPalindrome(string s)
-        {
-            for (int i = 0; i < s.Length / 2; i++)
-            {
-                if (s[i] != s[s.Length - 1 - i])
-                    return false;
-            }
-            return true;
         }
     }
 }

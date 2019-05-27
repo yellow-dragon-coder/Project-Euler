@@ -51,6 +51,18 @@ namespace ProjectEuler.Problems.Helpers
         /// Lowest common denominator
         /// </summary>
         public static int Lcd(int x, int y) => x / Gcd(x, y) * y;
+
+        public static bool IsPalindrome(this string s)
+        {
+            for (int i = 0; i < s.Length / 2; i++)
+            {
+                if (s[i] != s[s.Length - 1 - i])
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool IsPalindrome(this int i) => i.ToString().IsPalindrome();
     }
 }
 

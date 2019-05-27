@@ -9,9 +9,11 @@ namespace ProjectEuler.Problems
     {
         static ProblemList() =>
             registeredProblems.AddRange(Assembly.GetExecutingAssembly().ExportedTypes
-                .Where(t => typeof(IProblem).IsAssignableFrom(t)
+                .Where(t =>
+                    typeof(IProblem).IsAssignableFrom(t)
                     && !t.IsInterface
-                    && !t.IsAbstract).Select(t => Activator.CreateInstance(t) as IProblem));
+                    && !t.IsAbstract)
+                .Select(t => Activator.CreateInstance(t) as IProblem));
 
         private static readonly List<IProblem> registeredProblems = new List<IProblem>();
 
