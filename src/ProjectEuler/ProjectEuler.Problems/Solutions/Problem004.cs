@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ProjectEuler.Problems.Solutions
+﻿namespace ProjectEuler.Problems.Solutions
 {
     /// <summary>
     /// Largest palindrome product
@@ -19,16 +17,21 @@ namespace ProjectEuler.Problems.Solutions
 
         public string GetSolution()
         {
-            for (var i = 999; i > 100; i--)
+            var maxP = 0;
+            var result = "";
+            for (var i = 100; i < 1000; i++)
             {
-                for (var j = 999; j > 100; j--)
+                for (var j = 100; j < 1000; j++)
                 {
                     var p = i * j;
-                    if (IsPalindrome(p.ToString()))
-                        return $"{i} * {j} = {p}";
+                    if (IsPalindrome(p.ToString()) && p > maxP)
+                    {
+                        maxP = p;
+                        result = $"{i} * {j} = {maxP}";
+                    }
                 }
             }
-            throw new Exception("Solution not found");
+            return result;
         }
 
         private bool IsPalindrome(string s)
