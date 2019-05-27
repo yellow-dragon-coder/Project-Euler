@@ -19,15 +19,19 @@
         {
             var maxP = 0;
             var result = "";
-            for (var i = 100; i < 1000; i++)
+            for (var i = 1000; i > 100; i--)
             {
-                for (var j = 100; j < 1000; j++)
+                for (var j = 1000; j > 100; j--)
                 {
                     var p = i * j;
-                    if (IsPalindrome(p.ToString()) && p > maxP)
+                    if (IsPalindrome(p.ToString()))
                     {
-                        maxP = p;
-                        result = $"{i} * {j} = {maxP}";
+                        if (p > maxP)
+                        {
+                            maxP = p;
+                            result = $"{i} * {j} = {maxP}";
+                        }
+                        break; // this is the largest palindrome with this i value.
                     }
                 }
             }
