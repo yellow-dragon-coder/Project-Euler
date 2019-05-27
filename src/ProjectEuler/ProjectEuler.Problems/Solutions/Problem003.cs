@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjectEuler.Problems.Helpers;
 
 namespace ProjectEuler.Problems.Solutions
 {
@@ -21,22 +22,10 @@ namespace ProjectEuler.Problems.Solutions
         {
             for (var i = (long)Math.Sqrt(Number); i > 1; i--)
             {
-                if (Number % i == 0 && IsPrime(i))
+                if (Number % i == 0 && i.IsPrime())
                     return i.ToString();
             }
             throw new Exception("Solution not found");
-        }
-
-        private bool IsPrime(long n)
-        {
-            if (n < 2) return false;
-            var i = 2;
-            while (i * i <= n)
-            {
-                if (n % i == 0) return false;
-                i++;
-            }
-            return true;
         }
     }
 }
