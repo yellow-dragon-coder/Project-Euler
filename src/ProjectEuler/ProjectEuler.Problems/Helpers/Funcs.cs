@@ -1,11 +1,44 @@
 ﻿using System;
+using System.Linq;
 using static System.String;
 using static System.Environment;
+using static System.Math;
 
 namespace ProjectEuler.Problems.Helpers
 {
     public static class Funcs
     {
+        /// <summary>
+        /// Sieve of Eratosthenes
+        /// <see cref="http://www.wikizero.biz/index.php?q=aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU2lldmVfb2ZfRXJhdG9zdGhlbmVz"/>
+        /// </summary>
+        public static int[] Sieve(int upperBound)
+        {
+            if (upperBound < 2) return new int[0];
+
+            var isComposite = new bool[upperBound + 1];
+            var primes = new int[upperBound / (int)Log10(upperBound)];
+
+            isComposite[0] = isComposite[1] = true;
+
+            for (var i = 2; i * i <= upperBound; i++)
+            {
+                if (isComposite[i]) continue;
+                for (var j = i * i; j <= upperBound; j += i)
+                    isComposite[j] = true;
+            }
+
+            var p = 0;
+            for (var k = 0; k <= upperBound; k++)
+            {
+                if (isComposite[k]) continue;
+                primes[p] = k;
+                p++;
+            }
+
+            return primes.TakeWhile(i => i > 0).ToArray();
+        }
+
         public static string ToText(this int[] values)
         {
             const int colSize  = 7;
