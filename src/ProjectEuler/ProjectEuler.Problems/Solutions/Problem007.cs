@@ -12,7 +12,7 @@ namespace ProjectEuler.Problems.Solutions
         public int Id => 7;
         public string Title => "10001st prime";
 
-        private const int UpperBound = 10001;
+        public const int UpperBound = 10001;
 
         public string Description =>
             "By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, " +
