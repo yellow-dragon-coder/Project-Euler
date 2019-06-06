@@ -1,11 +1,33 @@
 ﻿using System;
-
-#pragma warning disable RCS1018 // Add default access modifier.
+using static System.String;
+using static System.Environment;
 
 namespace ProjectEuler.Problems.Helpers
 {
     public static class Funcs
     {
+        public static string ToText(this int[] values)
+        {
+            const int colSize  = 7;
+            const int colCount = 16;
+
+            var len = values?.Length ?? 0;
+            if (len == 0) return "[]";
+            var result = NewLine;
+            var c = 0;
+            for (int i = 0; i < len; i++)
+            {
+                if (c >= colCount)
+                {
+                    c = 0;
+                    result += NewLine;
+                }
+                c++;
+                result += Format($"{{0,{colSize}}}", values[i]);
+            }
+            return result;
+        }
+
         public static bool IsPrime(this long num)
         {
             if (num < 0)
@@ -13,6 +35,7 @@ namespace ProjectEuler.Problems.Helpers
             if (num < 2) return false;
             if (num == 2 || num == 3) return true;
             if (num % 2 == 0 || num % 3 == 0) return false;
+
             var max = (long)Math.Sqrt(num);
             for (long i = 5; i <= max; i += 2)
             {
@@ -39,8 +62,7 @@ namespace ProjectEuler.Problems.Helpers
         /// <summary>
         /// Greatest common divisor
         /// </summary>
-        public static int Gcd(int x, int y) =>
-            (int)Gcd((long)x, (long)y);
+        public static int Gcd(int x, int y) => (int)Gcd(x, (long)y);
 
         /// <summary>
         /// Lowest common denominator
@@ -54,6 +76,8 @@ namespace ProjectEuler.Problems.Helpers
 
         public static bool IsPalindrome(this string s)
         {
+            if (s == null) throw new ArgumentNullException(nameof(s));
+
             for (int i = 0; i < s.Length / 2; i++)
             {
                 if (s[i] != s[s.Length - 1 - i])
@@ -65,5 +89,3 @@ namespace ProjectEuler.Problems.Helpers
         public static bool IsPalindrome(this int i) => i.ToString().IsPalindrome();
     }
 }
-
-#pragma warning restore RCS1018 // Add default access modifier.
