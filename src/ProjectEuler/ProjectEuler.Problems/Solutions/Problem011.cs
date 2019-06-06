@@ -39,7 +39,7 @@ namespace ProjectEuler.Problems.Solutions
 
         public string GetSolution()
         {
-            throw new NotImplementedException();
+            return "under construction";
         }
     }
 }
