@@ -12,12 +12,12 @@ namespace ProjectEuler.Problems.Helpers
         /// Sieve of Eratosthenes
         /// <see cref="http://www.wikizero.biz/index.php?q=aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU2lldmVfb2ZfRXJhdG9zdGhlbmVz"/>
         /// </summary>
-        public static int[] Sieve(int upperBound)
+        public static long[] Sieve(long upperBound)
         {
-            if (upperBound < 2) return new int[0];
+            if (upperBound < 2) return new long[0];
 
             var isComposite = new bool[upperBound + 1];
-            var primes = new int[upperBound / (int)Log10(upperBound)];
+            var primes = new long[upperBound / (long)Log10(upperBound)];
 
             isComposite[0] = isComposite[1] = true;
 
@@ -39,7 +39,7 @@ namespace ProjectEuler.Problems.Helpers
             return primes.TakeWhile(i => i > 0).ToArray();
         }
 
-        public static string ToText(this int[] values)
+        public static string ToText(this long[] values)
         {
             const int colSize  = 7;
             const int colCount = 16;
