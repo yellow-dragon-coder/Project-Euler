@@ -31,7 +31,7 @@ namespace ProjectEuler.Problems.Solutions
                         var b = k * ((m * m) - (n * n));
                         var c = k * ((m * m) + (n * n));
                         if (a + b + c == 1000)
-                            return $"{a} x {b} x {c} = {a * b * c}";
+                            return $"{a} × {b} × {c} = {a * b * c}";
                     }
                 }
             }

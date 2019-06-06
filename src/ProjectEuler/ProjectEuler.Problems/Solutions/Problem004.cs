@@ -31,7 +31,7 @@ namespace ProjectEuler.Problems.Solutions
                         if (p > maxP)
                         {
                             maxP = p;
-                            result = $"{i} * {j} = {maxP}";
+                            result = $"{i} × {j} = {maxP}";
                         }
                         break; // this is the largest palindrome with this i value.
                     }

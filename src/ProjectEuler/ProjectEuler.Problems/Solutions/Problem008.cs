@@ -70,7 +70,7 @@ namespace ProjectEuler.Problems.Solutions
                 result     = values;
                 maxProduct = product;
             }
-            return $"{string.Join(" x ", result)} = {maxProduct}";
+            return $"{string.Join(" × ", result)} = {maxProduct}";
         }
     }
 }
