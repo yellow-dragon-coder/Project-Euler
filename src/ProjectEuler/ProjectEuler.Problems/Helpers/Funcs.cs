@@ -3,6 +3,7 @@ using System.Linq;
 using static System.String;
 using static System.Environment;
 using static System.Math;
+using System.Collections.Generic;
 
 namespace ProjectEuler.Problems.Helpers
 {
@@ -120,5 +121,14 @@ namespace ProjectEuler.Problems.Helpers
         }
 
         public static bool IsPalindrome(this int i) => i.ToString().IsPalindrome();
+
+        public static int Multiply<TSource>(
+            this IEnumerable<TSource> source,
+            Func<TSource, int> selector)
+        {
+            return source
+                .Select(selector)
+                .Aggregate(1, (acc, val) => acc * val);
+        }
     }
 }
