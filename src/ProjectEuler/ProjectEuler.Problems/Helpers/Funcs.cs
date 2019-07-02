@@ -4,6 +4,7 @@ using static System.String;
 using static System.Environment;
 using static System.Math;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace ProjectEuler.Problems.Helpers
 {
@@ -58,6 +59,16 @@ namespace ProjectEuler.Problems.Helpers
                 }
                 c++;
                 result += Format($"{{0,{colSize}}}", values[i]);
+            }
+            return result;
+        }
+
+        public static string ToText(this BigInteger[] values)
+        {
+            var result = string.Empty;
+            foreach (var val in values)
+            {
+                result += $"  {val} \r\n";
             }
             return result;
         }
@@ -129,6 +140,11 @@ namespace ProjectEuler.Problems.Helpers
             return source
                 .Select(selector)
                 .Aggregate(1, (acc, val) => acc * val);
+        }
+
+        public static BigInteger ToBigInteger(this string s)
+        {
+            return BigInteger.Parse(s);
         }
     }
 }
