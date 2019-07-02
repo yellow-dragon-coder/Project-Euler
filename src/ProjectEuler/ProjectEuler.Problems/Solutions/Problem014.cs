@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectEuler.Problems.Solutions
 {
@@ -23,9 +20,38 @@ namespace ProjectEuler.Problems.Solutions
             "Which starting number, under one million, produces the longest chain? \r\n\r\n" +
             "NOTE: Once the chain starts the terms are allowed to go above one million.";
 
+        // TODO: Optimization?
         public string GetSolution()
         {
-            throw new NotImplementedException();
+            var num = 0;
+            var length = 0;
+            for (int i = 999_999; i > 1; i--)
+            {
+                var len = GetCollatzSequence(i).Count();
+                if (len > length)
+                {
+                    length = len;
+                    num = i;
+                }
+            }
+            return $"{num}  ({length} terms)";
+        }
+
+        private static IEnumerable<int> GetCollatzSequence(int i)
+        {
+            yield return i;
+            while (i > 1)
+            {
+                yield return i = GetNext(i);
+            }
+        }
+
+        private static int GetNext(int i)
+        {
+            if (i % 2 == 0)
+                return i / 2;
+            else
+                return (3 * i) + 1;
         }
     }
 }
