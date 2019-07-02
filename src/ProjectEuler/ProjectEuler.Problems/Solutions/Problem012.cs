@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace ProjectEuler.Problems.Solutions
 {
+    /// <summary>
+    /// Highly divisible triangular number
+    /// <see cref="https://projecteuler.net/problem=12"/>
+    /// </summary>
     public class Problem012 : IProblem
     {
         public int Id => 12;

@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace ProjectEuler.Problems.Solutions
 {
+    /// <summary>
+    /// Longest Collatz sequence
+    /// <see cref="https://projecteuler.net/problem=14"/>
+    /// </summary>
     public class Problem014 : IProblem
     {
         public int Id => 14;
@@ -42,16 +46,11 @@ namespace ProjectEuler.Problems.Solutions
             yield return i;
             while (i > 1)
             {
-                yield return i = GetNext(i);
+                if (i % 2 == 0)
+                    yield return i /= 2;
+                else
+                    yield return i = (3 * i) + 1;
             }
-        }
-
-        private static int GetNext(int i)
-        {
-            if (i % 2 == 0)
-                return i / 2;
-            else
-                return (3 * i) + 1;
         }
     }
 }

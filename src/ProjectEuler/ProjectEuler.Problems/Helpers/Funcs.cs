@@ -142,6 +142,12 @@ namespace ProjectEuler.Problems.Helpers
                 .Aggregate(1, (acc, val) => acc * val);
         }
 
+        /// <summary>
+        /// Converts the string representation of a number to its <see cref="BigInteger"/> equivalent
+        /// </summary>
+        /// <param name="s">A string that contains the string to convert</param>
+        /// <exception cref="ArgumentNullException" />
+        /// <exception cref="FormatException" />
         public static BigInteger ToBigInteger(this string s)
         {
             return BigInteger.Parse(s);
