@@ -62,7 +62,7 @@ namespace ProjectEuler.Problems.Solutions
                 for (int i = 0; i < digits; i++)
                 {
                     values[i] = int.Parse(d[i + p].ToString());
-                    product *= values[i];
+                    product  *= values[i];
                 }
                 p++;
                 if (product <= maxProduct) continue;

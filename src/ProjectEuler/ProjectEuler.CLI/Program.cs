@@ -18,12 +18,12 @@ namespace ProjectEuler.CLI
                 if (!int.TryParse(ReadLine(), out var id)) continue;
                 if (id > 0)
                     Solve(id);
-                else
+                else if (id == 0)
                     break;
             }
         }
 
-        private static void Solve(int id)
+        static void Solve(int id)
         {
             try
             {
