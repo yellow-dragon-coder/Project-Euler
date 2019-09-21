@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
+using System.Numerics;
 using static System.String;
 using static System.Environment;
 using static System.Math;
-using System.Collections.Generic;
-using System.Numerics;
 
 namespace ProjectEuler.Problems.Helpers
 {
