@@ -1,7 +1,5 @@
 ﻿using System;
 
-#pragma warning disable CA1819 // Properties should not return arrays
-
 namespace ProjectEuler.Problems.Helpers
 {
     public class Grid
@@ -14,12 +12,12 @@ namespace ProjectEuler.Problems.Helpers
             Diag2
         }
 
-        public int[][] Values { get; }
+        private readonly int[][] values;
 
         public int this[int row, int col]
         {
-            get => Values[row][col];
-            set => Values[row][col] = value;
+            get => values[row][col];
+            set => values[row][col] = value;
         }
 
         public int RowCount { get; }
@@ -32,18 +30,18 @@ namespace ProjectEuler.Problems.Helpers
 
             RowCount = rowCount;
             ColCount = colCount;
-            Values   = default;
+            values   = default;
         }
 
         public Grid(int[][] values) : this(values.Length, values[0].Length)
         {
-            Values = values;
+            this.values = values;
         }
 
         public int CurrentRow { get; private set; }
         public int CurrentCol { get; private set; }
 
-        public int CurrentValue => Values[CurrentRow][CurrentCol];
+        public int CurrentValue => values[CurrentRow][CurrentCol];
 
         public bool MoveNext()
         {
@@ -92,7 +90,7 @@ namespace ProjectEuler.Problems.Helpers
                 default:
                     return false;
             }
-            next.value = Values[next.row][next.col];
+            next.value = values[next.row][next.col];
             return true;
         }
 
@@ -121,5 +119,3 @@ namespace ProjectEuler.Problems.Helpers
         }
     }
 }
-
-#pragma warning restore CA1819 // Properties should not return arrays
