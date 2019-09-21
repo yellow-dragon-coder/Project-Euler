@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using ProjectEuler.Problems.Helpers;
 
 namespace ProjectEuler.Problems.Solutions
@@ -122,11 +124,7 @@ namespace ProjectEuler.Problems.Solutions
 
         public string GetSolution()
         {
-            BigInteger sum = 0;
-            foreach (var num in Numbers)
-            {
-                sum += num;
-            }
+            BigInteger sum = Numbers.Aggregate(BigInteger.Add);
             return sum.ToString().Substring(0, 10);
         }
     }
