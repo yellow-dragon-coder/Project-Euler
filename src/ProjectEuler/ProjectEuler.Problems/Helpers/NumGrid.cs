@@ -1,5 +1,7 @@
 ﻿using System;
 
+#pragma warning disable CA1819 // Properties should not return arrays
+
 namespace ProjectEuler.Problems.Helpers
 {
     public class Grid
@@ -119,3 +121,5 @@ namespace ProjectEuler.Problems.Helpers
         }
     }
 }
+
+#pragma warning restore CA1819 // Properties should not return arrays
