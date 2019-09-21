@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ProjectEuler.Problems.Helpers
+﻿namespace ProjectEuler.Problems.Helpers
 {
     public class NumGrid : Grid<int>
     {
