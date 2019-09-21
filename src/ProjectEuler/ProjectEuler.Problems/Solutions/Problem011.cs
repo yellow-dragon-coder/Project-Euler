@@ -63,16 +63,16 @@ namespace ProjectEuler.Problems.Solutions
 
         public string GetSolution()
         {
-            var grid = new Grid(Values);
+            var grid = new NumGrid(Values);
 
             (int row, int col, int value)[] max = null;
 
             do
             {
-                CheckBlock(grid.GetBlock(Grid.Direction.Diag,  4), ref max);
-                CheckBlock(grid.GetBlock(Grid.Direction.Diag2, 4), ref max);
-                CheckBlock(grid.GetBlock(Grid.Direction.Horz,  4), ref max);
-                CheckBlock(grid.GetBlock(Grid.Direction.Vert,  4), ref max);
+                CheckBlock(grid.GetBlock(NumGrid.Direction.Diag,  4), ref max);
+                CheckBlock(grid.GetBlock(NumGrid.Direction.Diag2, 4), ref max);
+                CheckBlock(grid.GetBlock(NumGrid.Direction.Horz,  4), ref max);
+                CheckBlock(grid.GetBlock(NumGrid.Direction.Vert,  4), ref max);
             } while (grid.MoveNext());
 
             // TODO: Better visualization

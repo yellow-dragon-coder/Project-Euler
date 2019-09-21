@@ -2,8 +2,16 @@
 
 namespace ProjectEuler.Problems.Helpers
 {
-    public class Grid
+    public class NumGrid : Grid<int>
     {
+        public NumGrid(int rowCount, int colCount) : base(rowCount, colCount)
+        {
+        }
+
+        public NumGrid(int[][] values) : base(values)
+        {
+        }
+
         public enum Direction
         {
             Horz,
@@ -12,34 +20,8 @@ namespace ProjectEuler.Problems.Helpers
             Diag2
         }
 
-        private readonly int[][] values;
-
-        public int this[int row, int col]
-        {
-            get => values[row][col];
-            set => values[row][col] = value;
-        }
-
-        public int RowCount { get; }
-        public int ColCount { get; }
-
-        public Grid(int rowCount, int colCount)
-        {
-            if (colCount < 1 || rowCount < 1)
-                throw new ArgumentOutOfRangeException();
-
-            RowCount = rowCount;
-            ColCount = colCount;
-            values   = default;
-        }
-
-        public Grid(int[][] values) : this(values.Length, values[0].Length)
-        {
-            this.values = values;
-        }
-
-        public int CurrentRow { get; private set; }
-        public int CurrentCol { get; private set; }
+        public int CurrentCol { get; set; }
+        public int CurrentRow { get; set; }
 
         public int CurrentValue => values[CurrentRow][CurrentCol];
 
