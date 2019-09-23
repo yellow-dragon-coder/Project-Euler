@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjectEuler.Problems.Helpers;
 
 namespace ProjectEuler.Problems.Solutions
 {
@@ -17,9 +18,18 @@ namespace ProjectEuler.Problems.Solutions
             "  (see https://projecteuler.net/problem=15 for visual representation) \r\n" +
             "How many such routes are there through a 20×20 grid?";
 
+        // TODO!
         public string GetSolution()
         {
-            throw new NotImplementedException();
+            var grid = new PathGrid();
+            //grid.Setup(2, 2);
+            //grid.Setup(3, 3);
+            //grid.Setup(4, 4);
+            //grid.Setup(5, 5);
+            grid.Setup(10, 10);
+            //grid.Setup(20, 20);
+            var result = grid.FindPathCount();
+            return result.ToString();
         }
     }
 }
