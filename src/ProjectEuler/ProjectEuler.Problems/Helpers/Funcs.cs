@@ -152,5 +152,15 @@ namespace ProjectEuler.Problems.Helpers
         {
             return BigInteger.Parse(s);
         }
+
+        public static IEnumerable<int> AsEnumerable(this Range range)
+        {
+            if (range.Start.IsFromEnd || range.End.IsFromEnd)
+                throw new ArgumentException(nameof(range));
+            return Enumerable.Range(range.Start.Value, range.End.Value);
+        }
+
+        public static IEnumerable<int> ToArray(this Range range)
+            => range.AsEnumerable().ToArray();
     }
 }

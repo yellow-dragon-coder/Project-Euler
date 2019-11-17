@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ProjectEuler.Problems.Helpers;
 
 namespace ProjectEuler.Problems.Solutions
 {
@@ -16,10 +17,11 @@ namespace ProjectEuler.Problems.Solutions
             "we get 3, 5, 6 and 9. The sum of these multiples is 23. \r\n" +
             "Find the sum of all the multiples of 3 or 5 below 1000.";
 
-        public string GetSolution() =>
-            Enumerable.Range(1, 999)
+        public string GetSolution()
+            => (1..999)
+                .ToArray()
                 .Where(i => i % 3 == 0 || i % 5 == 0)
                 .Sum()
-            .ToString();
+                .ToString();
     }
 }
